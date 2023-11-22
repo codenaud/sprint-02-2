@@ -84,13 +84,15 @@ function buy(id) {
   // 2. Add found product to the cart array
   // --------------------------------------------------------------------------
 
+  // ## SOLUTION
   // 1. Loop FOR OF en la ARRAY de productos para agregar el artículo al carrito
   for (const product of products) {
     // 2. Comprueba si el producto actual tiene el mismo ID
     if (product.id === id) {
       // 3. Agrega el producto encontrado al carrito
       cart.push(product);
-      console.log(`Product with id ${id} added to the cart.`);
+      console.log(`Product with id ${id} added to the cart. Price: ${product.price}`); // mostramos el precio también
+      calculateTotal(); // vamos iterando el importe total
       return; // Sal del bucle una vez que se encuentre y agregue el producto.
     }
   }
@@ -102,12 +104,39 @@ console.log(cart);
 
 // Exercise 2
 function cleanCart() {
+  // --------------------------------------------------------------------------
+  // A. Instructions
+  // 1. Clear the array cart
+  // --------------------------------------------------------------------------
+
+  // ## SOLUTION
+  // igualamos el array cart a un array vacio.
   cart = [];
+  console.log("the cart it's empty");
+  calculateTotal();
 }
 
 // Exercise 3
 function calculateTotal() {
-  // Calculate total price of the cart using the "cartList" array
+  // --------------------------------------------------------------------------
+  // A. Instructions
+  // 1. Calculate total price of the cart using the "cartList" array
+  // --------------------------------------------------------------------------
+
+  // ## SOLUTION
+
+  // creamos la varibale totalPrice a 0.
+  let totalPrice = 0;
+
+  // Loop para poder iterar todos los precios de la cart list y sumarlos
+  for (let i = 0; i < cart.length; i++) {
+    totalPrice += cart[i].price; // vamos sumando los precios
+  }
+  // Imprime el resultado después de completar el bucle
+  console.log('Total Price:', totalPrice);
+
+  // Devuelve el totalPrice si deseas utilizar este valor en otra parte de tu código
+  return totalPrice;
 }
 
 // Exercise 4
