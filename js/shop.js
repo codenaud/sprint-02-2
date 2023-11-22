@@ -77,6 +77,8 @@ var total = 0;
 console.log('Ejercicio 1');
 
 // Exercise 1
+
+// Exercise 1
 function buy(id) {
   // --------------------------------------------------------------------------
   // A. Instructions
@@ -85,18 +87,37 @@ function buy(id) {
   // --------------------------------------------------------------------------
 
   // ## SOLUTION
-  // 1. Loop FOR OF en la ARRAY de productos para agregar el artículo al carrito
+
+  let qty = 0; // varable cantidad para contabilizar el producto
+
   for (const product of products) {
-    // 2. Comprueba si el producto actual tiene el mismo ID
     if (product.id === id) {
-      // 3. Agrega el producto encontrado al carrito
-      cart.push(product);
-      console.log(`Product with id ${id} added to the cart. Price: ${product.price}`); // mostramos el precio también
-      calculateTotal(); // vamos iterando el importe total
-      return; // Sal del bucle una vez que se encuentre y agregue el producto.
+      // Verifica si el producto ya está en el carrito por id
+      const existingProduct = cart.find((cartProduct) => cartProduct.id === id);
+
+      if (existingProduct) {
+        // Si el producto ya está en el carrito, incrementa la cantidad
+        existingProduct.qty++;
+      } else {
+        // Si el producto no está en el carrito, agrégalo con cantidad 1
+        cart.push({ ...product, qty: 1 }); // creamos una copia de product pero le añadimos la propiedadqty
+      }
+      // Utiliza el precio con descuento si existe, de lo contrario, usa el precio original
+      const priceToDisplay = existingProduct?.subtotalWithDiscount || product.price;
+
+      console.log(
+        `Product with id ${id} added to the cart. Price: ${priceToDisplay.toFixed(2)}. Qty: ${
+          existingProduct ? existingProduct.qty : 1
+        }.`
+      );
+
+      calculateTotal();
+      applyPromotionsCart(cart);
+      updateCartCount();
+      return;
     }
   }
-  // 4. Si el bucle se completa y no se encuentra el producto
+  // Si el bucle se completa y no se encuentra el producto
   console.log(`Product with id ${id} not found.`);
 }
 
@@ -110,9 +131,25 @@ function cleanCart() {
   // --------------------------------------------------------------------------
 
   // ## SOLUTION
-  // igualamos el array cart a un array vacio.
+  // Obtén el contenedor del carrito
+  const cartList = document.querySelector('#cart_list');
+
+  // Limpia el contenido actual del carrito en el modal
+  cartList.innerHTML = '';
+
+  // Vacía el array cart
   cart = [];
-  console.log("the cart it's empty");
+
+  console.log('The cart is empty');
+
+  // Actualiza el contador del carrito a 0
+  updateCartCount(0);
+
+  // Actualiza el elemento HTML del "Total Price" a 0
+  const totalPriceElement = document.querySelector('#total_price');
+  totalPriceElement.textContent = '0.00';
+
+  // Calcular el total después de vaciar el carrito
   calculateTotal();
 }
 
@@ -130,8 +167,17 @@ function calculateTotal() {
 
   // Loop para poder iterar todos los precios de la cart list y sumarlos
   for (let i = 0; i < cart.length; i++) {
-    totalPrice += cart[i].price; // vamos sumando los precios
+    // Utiliza el campo subtotalWithDiscount si existe, de lo contrario, usa el precio original multiplicado por la cantidad
+    const priceWithDiscount = cart[i].subtotalWithDiscount || cart[i].price;
+    totalPrice += priceWithDiscount * cart[i].qty;
   }
+
+  // Redondea el resultado a dos decimales
+  totalPrice = Math.round(totalPrice * 100) / 100;
+
+  // Utiliza toFixed para limitar a dos decimales (mejor redondear para evitar problemas).
+  // totalPrice = totalPrice.toFixed(2);
+
   // Imprime el resultado después de completar el bucle
   console.log('Total Price:', totalPrice);
 
@@ -140,13 +186,72 @@ function calculateTotal() {
 }
 
 // Exercise 4
-function applyPromotionsCart() {
-  // Apply promotions to each item in the array "cart"
+function applyPromotionsCart(cart) {
+  // Recorre cada producto en el carrito
+  for (const product of cart) {
+    // Aplica la promoción si se cumplen las condiciones
+    if (product.id === 1 && product.qty >= 3) {
+      const discount = product.price * 0.2; // Calcula el descuento
+      product.subtotalWithDiscount = product.price - discount; // Resta el descuento al precio original
+      console.log(
+        `Promotion applied to product ${product.id}: 20% discount. New price: ${product.subtotalWithDiscount}`
+      );
+    } else if (product.id === 3 && product.qty >= 10) {
+      const discount = product.price * 0.3; // Calcula el descuento
+      product.subtotalWithDiscount = product.price - discount; // Resta el descuento al precio original
+      console.log(
+        `Promotion applied to product ${product.id}: 30% discount. New price: ${product.subtotalWithDiscount}`
+      );
+    } else {
+      // Si no hay descuento, simplemente establece el subtotalWithDiscount al precio original
+      product.subtotalWithDiscount = product.price;
+    }
+  }
 }
 
 // Exercise 5
 function printCart() {
   // Fill the shopping cart modal manipulating the shopping cart dom
+
+  // Get the cart modal and cart list tbody
+  const cartModal = document.querySelector('#cartModal');
+  const cartList = document.querySelector('#cart_list');
+
+  // Clear the existing content in the cart list
+  cartList.innerHTML = '';
+
+  // Iterate through the items in the cart
+  for (const item of cart) {
+    // Create a new table row
+    const row = document.createElement('tr');
+
+    // Fill the row with item details
+    row.innerHTML = `
+      <th scope="row">${item.name}</th>
+      <td>$${item.price.toFixed(2)}</td>
+      <td>${item.qty}</td>
+      <td>$${(item.subtotalWithDiscount * item.qty).toFixed(2)}</td>
+    `;
+
+    // Append the row to the cart list
+    cartList.appendChild(row);
+  }
+
+  // Update the total price in the modal
+  const totalPriceElement = document.querySelector('#total_price');
+  totalPriceElement.textContent = calculateTotal().toFixed(2);
+}
+
+// Exercise EXTRA => actualizamos el icono del carrito
+function updateCartCount() {
+  // Obtén el elemento del conteo del carrito
+  const countElement = document.getElementById('count_product');
+
+  // Calcula la cantidad total sumando la cantidad de cada producto en el carrito
+  const qtyTotal = cart.reduce((total, item) => total + item.qty, 0);
+
+  // Actualiza el contenido del elemento del conteo
+  countElement.textContent = qtyTotal.toString();
 }
 
 // ** Nivell II **
