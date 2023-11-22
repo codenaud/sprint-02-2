@@ -70,13 +70,10 @@ var products = [
 // ** Don't hesitate to seek help from your peers or your mentor if you still struggle with debugging.
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
+
 var cart = [];
 
 var total = 0;
-
-console.log('Ejercicio 1');
-
-// Exercise 1
 
 // Exercise 1
 function buy(id) {
