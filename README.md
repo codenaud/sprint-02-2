@@ -1,30 +1,26 @@
-# Sprint 2 IT Academy | Shop
+# JavaScript 1 Sprint 2.2 [ShopNow]
+
+[![ShopNow](images/git-screenshot.png)](https://codenaud.github.io/sprint-02-2/)
 
 ## Introduction
 
-A company in the e-commerce sector has asked us for a web application that allows them to offer the purchase of their products through the internet.
+This project, "ShopNow," is part of the JavaScript 1 Sprint 2.2 at the IT Academy. It involves creating a web application for an e-commerce company. The goal is to set up an initial demo version focusing on shopping cart management and the application of promotions to the final price.
 
-You will be in charge of setting up an initial demo version of the application for the client: management of the shopping cart and the application of the promotions on the final price. You have 2 weeks to finish, which is how long this sprint lasts.
+## Getting Started
 
-<br>
+1. Clone this this repository:
 
-## Requirements
-
-
-1. Clone this repo
 ```bash
 $ git clone https://github.com/IT-Academy-BCN/starter-code-frontend-shop
 ```
 
-2. Unlink your repo from the itacademy repository.
-(Explanation: You have to upload the code to your GitHub repository, not to the IT Academy. That's why you have to unlink your project from IT Academy GitHub with the following command)
+2. Unlink your repository from the IT Academy repository:
 
 ```bash
 $ git remote rm origin
 ```
 
-3. Link your repo to the repository you have to create in your github account
-(Explanation: Now your project is not linked to any remote repository. In order to upload your code, you have to link your project to the new repository created on github.com using the following command)
+3. Link your repository to your GitHub account:
 
 ```bash
 $ git remote add origin <your repo name!>
@@ -44,29 +40,62 @@ $ git push origin master
 
 2. Upload the link to the virtual campus so that your mentor can correct it and give you feedback.
 
-
-
-<br>
-
-## Introduction
-
-The statement of the exercise is available on the virtual campus.
-
-<br>
-
-
 ## Instructions
 
-You have the following indications from the frontend manager:
+This project involves working with hardcoded data for 9 products divided into 3 sections. The logic will be implemented in the src/grocery.js and src/checkout.js files. The project already has the necessary files and an initial version of the interface.
 
-- You have prepared the base of the project on which you will work: https://github.com/IT-Academy-BCN/starter-code-frontend-shop
+## Live Demo
 
-- The base of the project on which you will work has already created all the files, and an initial version of the interface, so you can focus on programming the logic.
+Check out the live demo to explore ShopNow: [Live Demo](https://codenaud.github.io/sprint-02-2/)
 
-- As at the moment we don't consume data from a server using an API, we will work with hardcoded data in the application. For the moment we will implement the logic using a small group of 9 products divided in 3 sections.
+## Features
 
-- Except for the last level, showing the result of the functions by console is enough.
+- Shopping Cart Management: Implement logic for adding and removing items from the shopping cart.
+- Promotion Application: Develop functionality to apply promotions to the final price during checkout.
+- Hardcoded Data Handling: Work with hardcoded data for 9 products divided into 3 sections.
+- Interactive Interface: Create an intuitive and user-friendly interface for a seamless shopping experience.
+- Console Output for Testing: Utilize console output to showcase the results of functions during development.
+- Responsive Design: Ensure the application's responsiveness for various screen sizes and devices.
+- Clean and Modular Code: Write well-structured and modular JavaScript code following best practices.
+- Version Control with Git: Track changes and collaborate using Git for effective version control.
+- GitHub Repository Hosting: Host the project repository on GitHub for collaboration and mentor feedback.
+- Regular Updates: Commit to continuous updates, ensuring the project reflects ongoing development progress.
 
-- The logic to implement will be placed in the src/grocery.js and src/checkout.js files. You will see that the built in functions have already been created for you to implement them.
+## Technologies Used
 
-- It is forbidden to copy the code, since this way you don't learn anything. Furthermore, as you can see, the second release of sprint 5 is a mini-level test with the mentor, in which you will have to demonstrate live that you have acquired the javascript concepts. Don't worry, if you work on the releases you won't have any problems.
+The ShopNow project has been developed using the following technologies:
+
+- HTML5: Provides the structure and organization of the web page.
+- CSS3: Applies styles and visual effects to create responsive and visually appealing designs.
+- JavaScript: Enhances interactivity and dynamic behavior in specific projects.
+- Git: Utilized for version control and tracking changes to the project.
+- GitHub: Hosts and collaborates on the project repository.
+- Code Editor: The code editor is used to write and edit the source code of the projects.
+
+## Badges/Shields
+
+Dev Skills
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+Build with
+
+![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+
+## Acknowledgments
+
+This project is part of the IT Academy JavaScript 1 Sprint 2.2. Special thanks to the IT Academy community for their support.
+
+Thank's to It Academy!
+
+## About Me
+
+I'm a junior frontend developer passionate about creating engaging and functional web applications. This project showcases my skills in HTML, CSS, and JavaScript.
+
+## Contact
+
+If you have any questions or suggestions, do not hesitate to contact me through my email: [codenaud@gmail.com](mailto:codenaud@gmail.com)
+
+Happy coding! 🚀

@@ -160,6 +160,24 @@ footer {
   background-color: var(--primary-pink) !important;
 }
 
+/* The Image container */
+.img-hover-zoom {
+  height: 100%;
+  max-height: 265px;
+  overflow: hidden; /* Removing this will break the effects */
+  border-radius: 0.375rem 0.375rem 0 0 !important;
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+
 /*!
 * Start Bootstrap - Shop Homepage v5.0.4 (https://startbootstrap.com/template/shop-homepage)
 * Copyright 2013-2021 Start Bootstrap
