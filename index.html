@@ -46,20 +46,22 @@
 			<div id="navbar" class="navbar-collapse collapse">
 
 				<ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
-					<li class="nav-item">
-						<a class="nav-link" href="#grocery"><i class="fas fa-shopping-basket"></i> Grocery</a>
+					<li class="nav-item ">
+						<a class="nav-link underlined-left" href="#grocery"><i class="fas fa-shopping-basket"></i>
+							Grocery</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#beauty"><i class="fas fa-heart"></i> Beauty</a>
+						<a class="nav-link underlined-left" href="#beauty"><i class="fas fa-heart"></i> Beauty</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#clothes"><i class="fas fa-tshirt"></i> Clothes</a>
+						<a class="nav-link underlined-left" href="#clothes"><i class="fas fa-tshirt"></i> Clothes</a>
 					</li>
 
 				</ul>
 			</div>
 		</div>
 	</nav>
+
 
 	<!-- Header-->
 	<header class="py-5 custom-bg">
@@ -70,208 +72,284 @@
 			</div>
 		</div>
 	</header>
-	<!-- Section-->
-	<section class="pt-5" id="grocery">
-		<h2 class="text-center"><i class="fas fa-shopping-basket pe-3"></i>Grocery</h2>
-		<div class="container px-4 px-lg-5 mt-5">
-			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+	<!-- Section grocery-->
+	<section class="container pb-5" id="grocery">
+		<h2 class="h1 text-pink text-center py-5"><i class="fas fa-shopping-basket pe-3"></i>Grocery</h2>
+		<div class="row py-5">
+			<!-- card 1 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/oil.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">Cooking Oil</h5>
 								$10.5
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(1)"
-									class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(1)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_1">0</span>
-								<button type="button" onclick="incrementQty(1)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(1)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(1)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_1">0</span>
+									<button type="button" onclick="incrementQty(1)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+			</div>
+			<!-- card 2 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/pasta.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">Pasta</h5>
 								$6.25
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(2)"
-									class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(2)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_2">0</span>
-								<button type="button" onclick="incrementQty(2)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(2)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(2)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_2">0</span>
+									<button type="button" onclick="incrementQty(2)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+			</div>
+			<!-- card 3 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/cupcakes.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">Instant cupcake mixture</h5>
 								$5
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(3)"
-									class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(3)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_3">0</span>
-								<button type="button" onclick="incrementQty(3)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(3)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(3)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_3">0</span>
+									<button type="button" onclick="incrementQty(3)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</section>
-	<section class="pt-5" id="beauty">
-		<h2 class="text-center"><i class="fas fa-heart pe-3"></i>Beauty</h2>
-		<div class="container px-4 px-lg-5 mt-5">
-			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+
+	<!-- Section beauty-->
+	<section class="container pb-5" id="beauty">
+		<h2 class="h1 text-pink text-center py-5"><i class="fas fa-heart pe-3"></i>Beauty</h2>
+		<div class="row py-5">
+			<!-- card 4 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/all-in-one.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">All-in-1</h5>
 								$260
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(4)"
-									class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(4)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_4">0</span>
-								<button type="button" onclick="incrementQty(4)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(4)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(4)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_1">0</span>
+									<button type="button" onclick="incrementQty(4)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+			</div>
+			<!-- card 5 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/make-up.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">Zero makeup kit</h5>
 								$20.5
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="d-flex justify-content-between align-items-center">
-								<button type="button" onclick="buy(5)" class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(5)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_5">0</span>
-								<button type="button" onclick="incrementQty(5)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(5)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(5)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_2">0</span>
+									<button type="button" onclick="incrementQty(5)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+			</div>
+			<!-- card 6 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/lips-tint.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lip tints</h5>
 								$12.75
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(6)"
-									class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(6)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_6">0</span>
-								<button type="button" onclick="incrementQty(6)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(6)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(6)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_3">0</span>
+									<button type="button" onclick="incrementQty(6)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</section>
-	<section class="pt-5" id="clothes">
-		<h2 class="text-center"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
-		<div class="container px-4 px-lg-5 mt-5">
-			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+
+	<!-- Section clothes-->
+	<section class="container pb-5" id="clothes">
+		<h2 class="h1 text-pink text-center py-5"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
+		<div class="row py-5">
+			<!-- card 7 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/lawn-dress.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lawn dress</h5>
 								$15
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(7)"
-									class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(7)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_7">0</span>
-								<button type="button" onclick="incrementQty(7)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(7)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(7)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_1">0</span>
+									<button type="button" onclick="incrementQty(7)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+			</div>
+			<!-- card 8 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/lawn-chiffon.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">Lawn-chiffon combo</h5>
 								$19.99
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(8)"
-									class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(8)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_8">0</span>
-								<button type="button" onclick="incrementQty(8)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(8)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(8)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_2">0</span>
+									<button type="button" onclick="incrementQty(8)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
-						<div class="card-body p-4">
+			</div>
+			<!-- card 9 -->
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card shadow-sm">
+					<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+						<img src="images/toddler-frock.jpg" class="w-100 br-3" />
+					</div>
+					<div class="p-2">
+						<div class="card-body">
 							<div class="text-center">
 								<h5 class="fw-bolder">Toddler Frock</h5>
 								$9.99
 							</div>
 						</div>
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(9)"
-									class="btn btn-outline-dark">Add to cart</button>
-								<button type="button" onclick="decrementQty(9)" class="btn btn-outline-dark">-</button>
-								<span id="product_qty_9">0</span>
-								<button type="button" onclick="incrementQty(9)" class="btn btn-outline-dark">+</button>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent mx-3">
+							<div class="text-center d-flex justify-content-between ">
+								<button type="button" onclick="buy(9)" class="btn btn-outline-dark btn-pink-dark">Add
+									to cart</button>
+								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
+									<button type="button" onclick="decrementQty(9)"
+										class="btn btn-outline-dark btn-mutted">-</button>
+									<span class="counter" id="product_qty_3">0</span>
+									<button type="button" onclick="incrementQty(9)"
+										class="btn btn-outline-dark btn-mutted">+</button>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</section>
