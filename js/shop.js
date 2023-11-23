@@ -108,9 +108,16 @@ function buy(id) {
         }.`
       );
 
+      // Actualizar el contador del producto
+      const qtyElement = document.getElementById(`product_qty_${id}`);
+      if (qtyElement) {
+        qtyElement.textContent = existingProduct ? existingProduct.qty.toString() : '1';
+      }
+
       calculateTotal();
       applyPromotionsCart(cart);
-      updateCartCount();
+
+      updateCartCount(); // Añadir esta línea para actualizar el contador visualmente
       return;
     }
   }
@@ -224,11 +231,15 @@ function printCart() {
 
     // Fill the row with item details
     row.innerHTML = `
-      <th scope="row">${item.name}</th>
-      <td>$${item.price.toFixed(2)}</td>
-      <td>${item.qty}</td>
-      <td>$${(item.subtotalWithDiscount * item.qty).toFixed(2)}</td>
-    `;
+   <th scope="row">${item.name}</th>
+   <td>$${item.price.toFixed(2)}</td>
+   <td>
+     <button type="button" class="btn btn-outline-dark" onclick="decrementQty(${item.id})">-</button>
+     <span id="product_qty_${item.id}">${item.qty}</span>
+     <button type="button" class="btn btn-outline-dark" onclick="incrementQty(${item.id})">+</button>
+   </td>
+   <td>$${(item.subtotalWithDiscount * item.qty).toFixed(2)}</td>
+ `;
 
     // Append the row to the cart list
     cartList.appendChild(row);
@@ -254,7 +265,46 @@ function updateCartCount() {
 // ** Nivell II **
 
 // Exercise 7
-function removeFromCart(id) {}
+function decrementQty(id) {
+  const qtyElement = document.getElementById(`product_qty_${id}`);
+  const currentQty = parseInt(qtyElement.textContent);
+
+  if (currentQty > 0) {
+    qtyElement.textContent = currentQty - 1;
+    removeFromCart(id);
+    updateCartCount(); // Añadir esta línea para actualizar el contador visualmente
+  }
+}
+
+function incrementQty(id) {
+  const qtyElement = document.getElementById(`product_qty_${id}`);
+  const currentQty = parseInt(qtyElement.textContent);
+
+  qtyElement.textContent = currentQty + 1;
+  buy(id);
+}
+
+function removeFromCart(id) {
+  const productIndex = cart.findIndex((product) => product.id === id);
+
+  if (productIndex !== -1) {
+    const currentQty = cart[productIndex].qty;
+
+    if (currentQty > 1) {
+      // Decrementar la cantidad en una unidad
+      cart[productIndex].qty = currentQty - 1;
+    } else {
+      // Eliminar el producto del carrito
+      cart.splice(productIndex, 1);
+    }
+
+    // Actualizar las promociones
+    applyPromotionsCart(cart);
+    // Actualizar el total
+    calculateTotal();
+    // Actualizar el carrito visualmente (puedes llamar a printCart si es necesario)
+  }
+}
 
 function open_modal() {
   printCart();

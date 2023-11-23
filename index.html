@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
+	<link rel="stylesheet" href="css/styles.css">
+
 	<title>Sprint 2.2 JavaScript I [ShopNow] | It Academy</title>
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
@@ -20,9 +22,9 @@
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="50">
 	<!-- Navigation-->
-	<nav class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg" id="navbar-example2">
+	<nav class="navbar py-3 py-lg-0 navbar-dark navbar-expand-lg bg-transparent" id="navbar-example2">
 		<div class="container d-flex">
-			<a class="navbar-brand" href="#!">ShopNow</a>
+			<a class="navbar-brand text-pink fw-bolder" href="#!">ShopNow</a>
 			<div class="d-flex flex-row order-lg-last align-items-center">
 
 				<button type="button" class="navbar-toggler order-last collapsed" data-bs-toggle="collapse"
@@ -31,11 +33,11 @@
 				</button>
 				<ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
 					<li class="dropdown search-dropdown nav-item py-lg-3">
-						<a href="javascript:void(0)" class="btn btn-outline-dark flex-center" type="button"
+						<a href="javascript:void(0)" class="btn btn-outline-light btn-pink flex-center" type="button"
 							data-bs-toggle="modal" data-bs-target="#cartModal" onclick="open_modal()"
 							data-bs-auto-close="outside">
 							<i class="fas fa-shopping-cart me-1"></i> Cart <span
-								class="badge bg-dark text-white ms-1 rounded-pill" id="count_product">0</span>
+								class="badge bg-light text-pink ms-1 rounded-pill" id="count_product">0</span>
 						</a>
 					</li>
 				</ul>
@@ -60,11 +62,11 @@
 	</nav>
 
 	<!-- Header-->
-	<header class="bg-dark py-5">
-		<div class="container px-4 px-lg-5 my-5">
-			<div class="text-center text-white">
-				<h1 class="display-4 fw-bolder">IT Academy Shop</h1>
-				<p class="lead fw-normal text-white-50 mb-0">Get up to 50% off Today Only!</p>
+	<header class="py-5 custom-bg">
+		<div class="container d-flex align-items-center h-100 ">
+			<div class="text-white col-6">
+				<h1 class="display-1 fw-bolder">IT Academy Shopy</h1>
+				<p class="lead fw-normal text-white mb-0">Get up to 50% off Today Only!</p>
 			</div>
 		</div>
 	</header>
@@ -84,7 +86,12 @@
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center"><button type="button" onclick="buy(1)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+									class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(1)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_1">0</span>
+								<button type="button" onclick="incrementQty(1)" class="btn btn-outline-dark">+</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -99,7 +106,12 @@
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center"><button type="button" onclick="buy(2)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+									class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(2)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_2">0</span>
+								<button type="button" onclick="incrementQty(2)" class="btn btn-outline-dark">+</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -114,7 +126,12 @@
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center"><button type="button" onclick="buy(3)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+									class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(3)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_3">0</span>
+								<button type="button" onclick="incrementQty(3)" class="btn btn-outline-dark">+</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -137,7 +154,12 @@
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center"><button type="button" onclick="buy(4)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+									class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(4)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_4">0</span>
+								<button type="button" onclick="incrementQty(4)" class="btn btn-outline-dark">+</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -151,9 +173,14 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(5)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+							<div class="d-flex justify-content-between align-items-center">
+								<button type="button" onclick="buy(5)" class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(5)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_5">0</span>
+								<button type="button" onclick="incrementQty(5)" class="btn btn-outline-dark">+</button>
+							</div>
 						</div>
+
 					</div>
 				</div>
 				<div class="col mb-5">
@@ -167,7 +194,12 @@
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center"><button type="button" onclick="buy(6)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+									class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(6)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_6">0</span>
+								<button type="button" onclick="incrementQty(6)" class="btn btn-outline-dark">+</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -190,7 +222,12 @@
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center"><button type="button" onclick="buy(7)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+									class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(7)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_7">0</span>
+								<button type="button" onclick="incrementQty(7)" class="btn btn-outline-dark">+</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -205,7 +242,12 @@
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center"><button type="button" onclick="buy(8)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+									class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(8)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_8">0</span>
+								<button type="button" onclick="incrementQty(8)" class="btn btn-outline-dark">+</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -220,7 +262,12 @@
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center"><button type="button" onclick="buy(9)"
-									class="btn btn-outline-dark">Add to cart</button></div>
+									class="btn btn-outline-dark">Add to cart</button>
+								<button type="button" onclick="decrementQty(9)" class="btn btn-outline-dark">-</button>
+								<span id="product_qty_9">0</span>
+								<button type="button" onclick="incrementQty(9)" class="btn btn-outline-dark">+</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -250,7 +297,7 @@
 							<tr>
 								<th scope="col">Product</th>
 								<th scope="col">Price</th>
-								<th scope="col">Qty.</th>
+								<th scope="col" style="text-align: center;">Qty.</th>
 								<th scope="col">Total <small>(with discount)</small></th>
 							</tr>
 						</thead>
