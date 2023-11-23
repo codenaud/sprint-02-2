@@ -234,9 +234,7 @@ function printCart() {
    <th scope="row">${item.name}</th>
    <td>$${item.price.toFixed(2)}</td>
    <td>
-     <button type="button" class="btn btn-outline-dark" onclick="decrementQty(${item.id})">-</button>
      <span id="product_qty_${item.id}">${item.qty}</span>
-     <button type="button" class="btn btn-outline-dark" onclick="incrementQty(${item.id})">+</button>
    </td>
    <td>$${(item.subtotalWithDiscount * item.qty).toFixed(2)}</td>
  `;
@@ -272,8 +270,9 @@ function decrementQty(id) {
   if (currentQty > 0) {
     qtyElement.textContent = currentQty - 1;
     removeFromCart(id);
-    updateCartCount(); // Añadir esta línea para actualizar el contador visualmente
+    updateCartCount();
   }
+  console.log(`Decrementing quantity for product ${id}`);
 }
 
 function incrementQty(id) {
@@ -281,7 +280,8 @@ function incrementQty(id) {
   const currentQty = parseInt(qtyElement.textContent);
 
   qtyElement.textContent = currentQty + 1;
-  buy(id);
+  buy(id, currentQty + 1); // Asegúrate de pasar el valor actualizado de qty a la función buy
+  console.log(`Incrementing quantity for product ${id}`);
 }
 
 function removeFromCart(id) {

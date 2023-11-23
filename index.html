@@ -21,60 +21,67 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="50">
+
 	<!-- Navigation-->
-	<nav class="navbar py-3 py-lg-0 navbar-dark navbar-expand-lg bg-transparent" id="navbar-example2">
-		<div class="container d-flex">
-			<a class="navbar-brand text-pink fw-bolder" href="#!">ShopNow</a>
-			<div class="d-flex flex-row order-lg-last align-items-center">
-
-				<button type="button" class="navbar-toggler order-last collapsed" data-bs-toggle="collapse"
-					data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
-					<li class="dropdown search-dropdown nav-item py-lg-3">
-						<a href="javascript:void(0)" class="btn btn-outline-light btn-pink flex-center" type="button"
-							data-bs-toggle="modal" data-bs-target="#cartModal" onclick="open_modal()"
-							data-bs-auto-close="outside">
-							<i class="fas fa-shopping-cart me-1"></i> Cart <span
-								class="badge bg-light text-pink ms-1 rounded-pill" id="count_product">0</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<div id="navbar" class="navbar-collapse collapse">
-
-				<ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
-					<li class="nav-item ">
-						<a class="nav-link underlined-left" href="#grocery"><i class="fas fa-shopping-basket"></i>
-							Grocery</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link underlined-left" href="#beauty"><i class="fas fa-heart"></i> Beauty</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link underlined-left" href="#clothes"><i class="fas fa-tshirt"></i> Clothes</a>
-					</li>
-
-				</ul>
+	<nav class="navbar navbar-expand-lg navbar-light" aria-label="Offcanvas navbar large">
+		<div class="container">
+			<a class="navbar-brand text-pink fw-bolder" href="#">ShopNow</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
+				aria-controls="offcanvasNavbar2">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="offcanvas offcanvas-end text-light" tabindex="-1" id="offcanvasNavbar2"
+				aria-labelledby="offcanvasNavbar2Label">
+				<div class="offcanvas-header bb-1">
+					<h5 class="offcanvas-title text-light fw-bolder" id="offcanvasNavbar2Label">ShopNow</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+						aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3 align-items-center gap-3">
+						<li class="nav-item py-2">
+							<a class="nav-link underlined-left-light" href="#grocery"><i
+									class="fas fa-shopping-basket"></i>
+								Grocery</a>
+						</li>
+						<li class="nav-item py-2">
+							<a class="nav-link underlined-left-light" href="#beauty"><i class="fas fa-heart"></i>
+								Beauty</a>
+						</li>
+						<li class="nav-item py-2">
+							<a class="nav-link underlined-left-light" href="#clothes"><i class="fas fa-tshirt"></i>
+								Clothes</a>
+						</li>
+						<!-- btn cart offcanvas-->
+						<ul class="navbar-nav">
+							<li class="nav-item py-lg-3">
+								<a href="javascript:void(0)" class="btn btn-outline-light btn-pink flex-center"
+									type="button" data-bs-toggle="modal" data-bs-target="#cartModal"
+									onclick="open_modal()" data-bs-auto-close="outside">
+									<i class="fas fa-shopping-cart me-1"></i> Cart <span
+										class="badge bg-light text-pink ms-1 rounded-pill" id="count_product">0</span>
+								</a>
+							</li>
+						</ul>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</nav>
 
-
-	<!-- Header-->
-	<header class="py-5 custom-bg">
+	<!-- Hero-->
+	<section class="py-5 custom-bg" id="hero">
 		<div class="container d-flex align-items-center h-100 ">
 			<div class="text-white col-6">
 				<h1 class="display-1 fw-bolder">IT Academy Shopy</h1>
 				<p class="lead fw-normal text-white mb-0">Get up to 50% off Today Only!</p>
 			</div>
 		</div>
-	</header>
+	</section>
+
 	<!-- Section grocery-->
-	<section class="container pb-5" id="grocery">
-		<h2 class="h1 text-pink text-center py-5"><i class="fas fa-shopping-basket pe-3"></i>Grocery</h2>
+	<section class="container" id="grocery">
+		<h2 class="h1 text-pink text-center pb-5"><i class="fas fa-shopping-basket pe-3"></i>Grocery</h2>
 		<div class="row py-5">
 			<!-- card 1 -->
 			<div class="col-lg-4 col-md-6 mb-4">
@@ -167,7 +174,7 @@
 	</section>
 
 	<!-- Section beauty-->
-	<section class="container pb-5" id="beauty">
+	<section class="container" id="beauty">
 		<h2 class="h1 text-pink text-center py-5"><i class="fas fa-heart pe-3"></i>Beauty</h2>
 		<div class="row py-5">
 			<!-- card 4 -->
@@ -190,7 +197,7 @@
 								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
 									<button type="button" onclick="decrementQty(4)"
 										class="btn btn-outline-dark btn-mutted">-</button>
-									<span class="counter" id="product_qty_1">0</span>
+									<span class="counter" id="product_qty_4">0</span>
 									<button type="button" onclick="incrementQty(4)"
 										class="btn btn-outline-dark btn-mutted">+</button>
 								</div>
@@ -219,7 +226,7 @@
 								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
 									<button type="button" onclick="decrementQty(5)"
 										class="btn btn-outline-dark btn-mutted">-</button>
-									<span class="counter" id="product_qty_2">0</span>
+									<span class="counter" id="product_qty_5">0</span>
 									<button type="button" onclick="incrementQty(5)"
 										class="btn btn-outline-dark btn-mutted">+</button>
 								</div>
@@ -248,7 +255,7 @@
 								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
 									<button type="button" onclick="decrementQty(6)"
 										class="btn btn-outline-dark btn-mutted">-</button>
-									<span class="counter" id="product_qty_3">0</span>
+									<span class="counter" id="product_qty_6">0</span>
 									<button type="button" onclick="incrementQty(6)"
 										class="btn btn-outline-dark btn-mutted">+</button>
 								</div>
@@ -284,7 +291,7 @@
 								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
 									<button type="button" onclick="decrementQty(7)"
 										class="btn btn-outline-dark btn-mutted">-</button>
-									<span class="counter" id="product_qty_1">0</span>
+									<span class="counter" id="product_qty_7">0</span>
 									<button type="button" onclick="incrementQty(7)"
 										class="btn btn-outline-dark btn-mutted">+</button>
 								</div>
@@ -313,7 +320,7 @@
 								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
 									<button type="button" onclick="decrementQty(8)"
 										class="btn btn-outline-dark btn-mutted">-</button>
-									<span class="counter" id="product_qty_2">0</span>
+									<span class="counter" id="product_qty_8">0</span>
 									<button type="button" onclick="incrementQty(8)"
 										class="btn btn-outline-dark btn-mutted">+</button>
 								</div>
@@ -342,7 +349,7 @@
 								<div class="qty-counter d-flex justify-content-between gap-2 align-items-center">
 									<button type="button" onclick="decrementQty(9)"
 										class="btn btn-outline-dark btn-mutted">-</button>
-									<span class="counter" id="product_qty_3">0</span>
+									<span class="counter" id="product_qty_9">0</span>
 									<button type="button" onclick="incrementQty(9)"
 										class="btn btn-outline-dark btn-mutted">+</button>
 								</div>
@@ -354,13 +361,99 @@
 		</div>
 	</section>
 
-	<!-- Footer-->
-	<footer class="py-3 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
-		</div>
-	</footer>
 
+
+	<!-- Footer -->
+	<footer class="text-center text-lg-start bg-dark text-light mt-5">
+
+		<!-- Section: Links  -->
+		<section class="py-3">
+			<div class="container text-center text-md-start mt-5">
+				<!-- Grid row -->
+				<div class="row mt-3">
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+						<!-- Content -->
+						<h6 class="text-uppercase fw-bold mb-4">
+							<i class="fas fa-gem me-3"></i>ShopNow
+						</h6>
+						<p>
+							Fake online store made for an It Academy project. We work on javascript, css, bootstrap.
+						</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">
+							Products
+						</h6>
+						<p>
+							<a href="#!" class="text-reset">Angular</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">React</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Vue</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Laravel</a>
+						</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">
+							Useful links
+						</h6>
+						<p>
+							<a href="#!" class="text-reset">Pricing</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Settings</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Orders</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Help</a>
+						</p>
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+						<p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+						<p>
+							<i class="fas fa-envelope me-3"></i>
+							info@example.com
+						</p>
+						<p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+						<p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+					</div>
+					<!-- Grid column -->
+				</div>
+				<!-- Grid row -->
+			</div>
+		</section>
+		<!-- Section: Links  -->
+
+		<!-- Copyright -->
+		<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+			© 2023 Copyright:
+			<a class="text-reset fw-bold" href="https://github.com/codenaud">@codenaud</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
+
+	<!-- Modal -->
 	<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -375,7 +468,7 @@
 							<tr>
 								<th scope="col">Product</th>
 								<th scope="col">Price</th>
-								<th scope="col" style="text-align: center;">Qty.</th>
+								<th scope="col">Qty.</th>
 								<th scope="col">Total <small>(with discount)</small></th>
 							</tr>
 						</thead>

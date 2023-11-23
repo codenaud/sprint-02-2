@@ -2,7 +2,8 @@
   /*colors*/
   --primary-pink: rgba(233, 30, 99, 0.75);
   --white: rgba(255, 255, 255, 1);
-  --grey-transparency: rgba(229, 229, 229, 0.75);
+  --white-t20: rgba(255, 255, 255, 0.2);
+  --grey-t75: rgba(229, 229, 229, 0.75);
 }
 /* Custom-styles */
 .modal-dialog {
@@ -57,7 +58,21 @@ nav {
 .text-pink {
   color: var(--primary-pink) !important;
 }
-
+.navbar-toggler {
+  border: none !important;
+}
+.navbar-toggler-icon {
+  background-image: url(../images/icon-burguer.svg) !important;
+}
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+.offcanvas {
+  background-color: var(--primary-pink) !important;
+}
+.bb-1 {
+  border-bottom: 1px solid var(--white-t20);
+}
 .btn-pink:hover {
   color: var(--white) !important;
   background-color: var(--primary-pink) !important;
@@ -74,8 +89,8 @@ nav {
 }
 .btn-mutted {
   color: #212529 !important;
-  background-color: var(--grey-transparency) !important;
-  border-color: var(--grey-transparency) !important;
+  background-color: var(--grey-t75) !important;
+  border-color: var(--grey-t75) !important;
   font-weight: 600 !important;
   font-size: 1rem !important;
   min-width: 35px !important;
@@ -104,7 +119,32 @@ nav {
   height: 2px;
   left: 0;
   position: absolute;
-  background: var(--primary-pink) !important;
+  background: var(--white) !important;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.underlined-left-light:hover:after {
+  width: 100%;
+  left: 0;
+}
+.underlined-left-light {
+  color: var(--white) !important;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+  font-size: 1rem !important;
+  text-transform: capitalize;
+}
+.underlined-left-light:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  background: var(--white) !important;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
@@ -112,6 +152,7 @@ nav {
   width: 100%;
   left: 0;
 }
+
 .card {
   border: none !important;
 }
