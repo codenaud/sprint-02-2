@@ -191,20 +191,19 @@ function calculateTotal() {
 
 // Exercise 4
 function applyPromotionsCart(cart) {
+  // Filtra solo los productos con oferta
+  const productsWithOffers = products.filter((product) => product.offer);
+
   // Recorre cada producto en el carrito
   for (const product of cart) {
-    // Aplica la promoción si se cumplen las condiciones
-    if (product.id === 1 && product.qty >= 3) {
-      const discount = product.price * 0.2; // Calcula el descuento
+    // Busca si el producto tiene una oferta
+    const productOffer = productsWithOffers.find((offerProduct) => offerProduct.id === product.id);
+
+    if (productOffer && product.qty >= productOffer.offer.number) {
+      const discount = product.price * (productOffer.offer.percent / 100); // Calcula el descuento
       product.subtotalWithDiscount = product.price - discount; // Resta el descuento al precio original
       console.log(
-        `Promotion applied to product ${product.id}: 20% discount. New price: ${product.subtotalWithDiscount}`
-      );
-    } else if (product.id === 3 && product.qty >= 10) {
-      const discount = product.price * 0.3; // Calcula el descuento
-      product.subtotalWithDiscount = product.price - discount; // Resta el descuento al precio original
-      console.log(
-        `Promotion applied to product ${product.id}: 30% discount. New price: ${product.subtotalWithDiscount}`
+        `Promotion applied to product ${product.id}: ${productOffer.offer.percent}% discount. New price: ${product.subtotalWithDiscount}`
       );
     } else {
       // Si no hay descuento, simplemente establece el subtotalWithDiscount al precio original
